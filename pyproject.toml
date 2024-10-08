@@ -31,6 +31,6 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
-#[project.urls]
-#Homepage = "https://github.com/pypa/sampleproject"
-#Issues = "https://github.com/pypa/sampleproject/issues"
+[project.urls]
+Homepage = "https://github.com/serenaateum/DEDLUtils"
+Issues = "https://github.com/serenaateum/DEDLUtils/issues"
