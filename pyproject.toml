@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.sdist]
 exclude = [
-  "*.ipynb_checkpoints"
-  ".github"
+  "*.ipynb_checkpoints",
+  ".github",
   ".gitignore"
 ]
 
