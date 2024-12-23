@@ -87,7 +87,7 @@ class DEDLQueryablesUtilities:
                 typeq=json.dumps(filters[filtername]["type"])
             else:
                 typeq=''
-​
+
             if (filters[filtername]["title"] not in ['ID','Geometry','Datetime - use parameters year, month, day, time instead if available']):
                 table.add_row(filters[filtername]["title"],  typeq , enum, default)
         return table
