@@ -68,26 +68,28 @@ class DEDLQueryablesUtilities:
     # Function to display queryables in a table
     def create_queryables_table(self,filters,parameters=None):
         table = rich.table.Table(title="Applicable filters", expand=True, show_lines=True)
-        table.add_column("Description", style="cyan", justify="right")
+        table.add_column("Title", style="cyan", justify="right")
         table.add_column("Type", style="violet", justify="right", no_wrap=True)
         table.add_column("enum", style="violet", justify="right")
-        table.add_column("value", style="violet", justify="right", no_wrap=True)
+        table.add_column("default", style="violet", justify="right", no_wrap=True)
         for filtername in filters.keys():
             if ( bool(parameters) and filtername not in parameters.keys()):
+                continue
+            if ("title" not in filters[filtername]):
                 continue
             enum=''
             if 'enum' in filters[filtername]:
                 enum=' , ' .join(map(str,filters[filtername]["enum"]))
-            value=''
-            if'value' in filters[filtername]:
-                value=json.dumps(filters[filtername]["value"])
+            default=''
+            if'default' in filters[filtername]:
+                default=json.dumps(filters[filtername]["default"])
             if'type' in filters[filtername]:
                 typeq=json.dumps(filters[filtername]["type"])
             else:
                 typeq=''
-
-            if (filters[filtername]["description"] not in ['ID','Geometry','Datetime - use parameters year, month, day, time instead if available']):
-                table.add_row(filters[filtername]["description"],  typeq , enum, value)
+​
+            if (filters[filtername]["title"] not in ['ID','Geometry','Datetime - use parameters year, month, day, time instead if available']):
+                table.add_row(filters[filtername]["title"],  typeq , enum, default)
         return table
 
     # Function to fetch queryable properties for the given collection (self.collectionId) with optional params

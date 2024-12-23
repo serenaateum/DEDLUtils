@@ -1,3 +1,3 @@
 # DEDLUtils
 
-This is an utility package for DEDL.
+This is an utility package for the DestinE-Datalake-Lab notebooks.
